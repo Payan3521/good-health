@@ -1,15 +1,14 @@
-# Microservicio Java + Maven
+*AUTHENTICATION - MICROSERVICE*
 
-## Descripción
-Microservicio desarrollado en Java utilizando Maven como herramienta de gestión de dependencias y construcción del proyecto.
+TECNOLOGIAS: Java **21** + Springboot **4.0.5**
+GESTOR DE DEPENDENCIAS: Maven **3.9.14**
+BASE DE DATOS: SQL PostgreSQL **version**
 
-## Requisitos
-- Java JDK 21
-- Maven
-- Git
+RUN: ./mvnw spring-boot:run
+DEBUG: ...
+CLEAN: ./mvnw clean
+BUILD: ./mvnw compile
 
-## Puerto
-    - 8080
+CLEAN AND RUN: ./mvnw clean spring-boot:run
 
-# Como se ejecuta.
-./mvnw spring-boot:run
+PUERTO: 8080
