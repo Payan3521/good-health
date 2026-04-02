@@ -4,4 +4,4 @@ app = FastAPI()
 
 @app.get("/")
 def hello():
-    return "MedicalRecord Microservice"
+    return "IAIntegration Microservice"
