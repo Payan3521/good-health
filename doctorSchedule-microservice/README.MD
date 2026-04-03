@@ -1,16 +1,19 @@
-# Microservicio Go + Goland
+# Doctor Schedule Microservice - Good Health
 
-## Descripción
-Microservicio desarrollado en Go utilizando Goland como IDE principal y Go Modules para la gestión de dependencias.
+Este directorio contiene el microservicio encargado de la gestión de horarios y agendas médicas para el proyecto **Good Health**.
 
-## Requisitos
-- Go 1.26.1 o superior
-- Git
+## Stack Tecnológico
+- **Tecnologías:** Go 1.26.1 + GIN 1.12.0
+- **Base de Datos:** PostgreSQL (SQL)
 
-## Puerto
-    - 8081
+## Ejecución
+- **Puerto expuesto:** `8081`
 
-# Como se ejecuta.
-go run main.go
+### Comandos disponibles
 
-
+| Acción | Comando |
+| :--- | :--- |
+| **Run** | `go run main.go` o `go run .` |
+| **Clean** | `go clean -cache` |
+| **Build** | `go build -o app main.go` |
+| **Clean & Run** | `go clean -cache && go run main.go` |

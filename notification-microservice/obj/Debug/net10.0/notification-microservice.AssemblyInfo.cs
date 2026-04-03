@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("notification-microservice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aae0eb4de658ddef46db24e714763f89293a5c91")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40b9db897d911baf954040142aef731b4d477290")]
 [assembly: System.Reflection.AssemblyProductAttribute("notification-microservice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("notification-microservice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

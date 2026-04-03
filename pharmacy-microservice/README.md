@@ -1,25 +1,20 @@
-# Microservicio Python + Flask
+# Pharmacy Microservice - Good Health
 
-## Descripción
-Microservicio desarrollado en Python utilizando Flask como framework web y Werkzeug como servidor WSGI.
+Este directorio contiene el microservicio encargado de la gestión de farmacia y medicamentos para el proyecto **Good Health**.
 
-## Requisitos
-- Python 3.9
-- pip (gestor de paquetes de Python)
-- Git
-- venv (Entorno)
+## Stack Tecnológico
+- **Tecnologías:** Python 3.13.5 + Flask 3.1.3
+- **Gestor de Dependencias:** Pip 25.1.1
+- **Base de Datos:** PostgreSQL (SQL)
 
-## Puerto
-    - 8086
+## Ejecución
+- **Puerto expuesto:** `8086`
 
-# Instalar depencias
+### Comandos disponibles
 
-pip install -r requirements.txt
-
-## Como ejecutar 
-
-# Configurar la variable de entorno FLASK_APP
-        export FLASK_APP=app.py
-
-# Ejecutar
-        flask run
+| Acción | Comando |
+| :--- | :--- |
+| **Run** | `python main.py` |
+| **Clean** | `find . -type d -name "__pycache__" -exec rm -rf {} +` |
+| **Build** | `pip freeze > requirements.txt` |
+| **Clean & Run** | `find . -type d -name "__pycache__" -exec rm -rf {} + && python main.py` |

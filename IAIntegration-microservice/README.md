@@ -1,18 +1,20 @@
-# Microservicio Python + FastAPI
+# IA Integration Microservice - Good Health
 
-## Descripción
-Microservicio desarrollado en Python utilizando FastAPI como framework web y Uvicorn como servidor ASGI.
+Este directorio contiene el microservicio de integración de Inteligencia Artificial para el proyecto **Good Health**.
 
-## Requisitos
-- Python 3.9 o superior
-- pip (gestor de paquetes de Python)
-- Git
-- venv (entorno)
-- uvicorn (servidor)
+## Stack Tecnológico
+- **Tecnologías:** Python 3.13.5 + FastAPI 0.135.3
+- **Gestor de Dependencias:** Pip 25.1.1
+- **Integración:** API de Gemini
 
-## Puerto
-    - 8083
+## Ejecución
+- **Puerto expuesto:** `8083`
 
-### Como se ejecuta
-- Entrar al entorno
-- uvicorn main:app --reload
+### Comandos disponibles
+
+| Acción | Comando |
+| :--- | :--- |
+| **Run** | `python main.py` |
+| **Clean** | `find . -type d -name "__pycache__" -exec rm -rf {} +` |
+| **Build** | `pip freeze > requirements.txt` |
+| **Clean & Run** | `find . -type d -name "__pycache__" -exec rm -rf {} + && python main.py` |
