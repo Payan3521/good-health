@@ -11,4 +11,4 @@ BUILD: ./gradlew build
 
 CLEAN AND RUN: ./gradlew clean bootRun
 
-PUERTO: 8083
+PUERTO: 8082
