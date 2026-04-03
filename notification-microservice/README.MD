@@ -1,14 +1,15 @@
-# Microservicio .NET
+*NOTIFICATION - MICROSERVICE*
 
-## Descripción
-Microservicio desarrollado en .NET utilizando ASP.NET Core como framework web.
+TECNOLOGIAS: C# **Latest default** + .NET **10.0**
+GESTOR DE DEPENDENCIAS: NuGet **7.3.0.0**
+BASE DE DATOS: SQL PostgreSQL **version**
+INTEGRACION: Serverless AWS Lambda
 
-## Requisitos
-- .NET 9.0 SDK o superior
-- Git
+RUN: dotnet run
+DEBUG: ...
+CLEAN: dotnet clean
+BUILD: dotnet build
 
-## Puerto
-    - 8085
+CLEAN AND RUN: dotnet clean && dotnet run
 
-# Como ejecutar 
-dotnet run
+PUERTO: 8085
