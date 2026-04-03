@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+    "doctorSchedule-microservice/internal/handlers"
+    "github.com/gin-gonic/gin"
+)
 
 func main() {
-    fmt.Println("¡Hola, Go desde cero!")
+    router := gin.Default()
+    handler := handlers.NewTestHandler()
+    router.GET("/", handler.TestHandler)
+    router.Run(":8081")
 }
