@@ -1,25 +1,14 @@
-# Microservicio Python + Flask
+*PHARMACY - MICROSERVICE*
 
-## Descripción
-Microservicio desarrollado en Python utilizando Flask como framework web y Werkzeug como servidor WSGI.
+TECNOLOGIAS: Python **3.13.5** + Flask **3.1.3**
+GESTOR DE DEPENDENCIAS: Pip **25.1.1**
+BASE DE DATOS: SQL PostgreSQL **version**
 
-## Requisitos
-- Python 3.9
-- pip (gestor de paquetes de Python)
-- Git
-- venv (Entorno)
+RUN: python main.py
+DEBUG: ...
+CLEAN: find . -type d -name "__pycache__" -exec rm -rf {} +
+BUILD: pip freeze > requirements.txt
 
-## Puerto
-    - 8086
+CLEAN AND RUN: find . -type d -name "__pycache__" -exec rm -rf {} + && python main.py
 
-# Instalar depencias
-
-pip install -r requirements.txt
-
-## Como ejecutar 
-
-# Configurar la variable de entorno FLASK_APP
-        export FLASK_APP=app.py
-
-# Ejecutar
-        flask run
+PUERTO: 8086
