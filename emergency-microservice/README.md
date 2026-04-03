@@ -1,15 +1,14 @@
-# Microservicio Java + Gradle
+*AUTHENTICATION - MICROSERVICE*
 
-## Descripción
-Microservicio desarrollado en Java utilizando Gradle como herramienta de gestión de dependencias y construcción del proyecto.
+TECNOLOGIAS: Java **21** + Springboot **4.0.5**
+GESTOR DE DEPENDENCIAS: Gradle **9.4.1**
+BASE DE DATOS: SQL PostgreSQL **version**
 
-## Requisitos
-- Java JDK 21
-- Gradle
-- Git
+RUN: ./gradlew bootRun
+DEBUG: ...
+CLEAN: ./gradlew clean
+BUILD: ./gradlew build
 
-## Puerto
-    - 8082
+CLEAN AND RUN: ./gradlew clean bootRun
 
-## Como se ejecuta
--./gradlew bootRun
+PUERTO: 8083
