@@ -1,15 +1,20 @@
-*GATEWAY - MICROSERVICE*
+# API Gateway - Good Health
 
-TECNOLOGIAS: TypeScript **5.7.3** + NestJS **11.0.1**
-GESTOR DE DEPENDENCIAS: npm/npx **11.9.0**
-BASE DE DATOS: ...
-INTEGRACION: Trafik
+Este directorio contiene el API Gateway, que actúa como punto de entrada centralizado conectando el frontend con los microservicios del proyecto **Good Health**.
 
-RUN: npm run start:dev
-DEBUG: ...
-CLEAN: rm -rf dist
-BUILD: npm run build
+## Stack Tecnológico
+- **Tecnologías:** TypeScript 5.7.3 + NestJS 11.0.1
+- **Gestor de Dependencias:** npm/npx 11.9.0
+- **Integración:** Traefik
 
-CLEAN AND RUN: rm -rf dist && npm run start:dev
+## Ejecución
+- **Puerto expuesto:** `8000`
 
-PUERTO: 8000
+### Comandos disponibles
+
+| Acción | Comando |
+| :--- | :--- |
+| **Run** | `npm run start:dev` |
+| **Clean** | `rm -rf dist` |
+| **Build** | `npm run build` |
+| **Clean & Run** | `rm -rf dist && npm run start:dev` |

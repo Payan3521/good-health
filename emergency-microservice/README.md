@@ -1,14 +1,20 @@
-*EMERGENCY - MICROSERVICE*
+# Emergency Microservice - Good Health
 
-TECNOLOGIAS: Java **21** + Springboot **4.0.5**
-GESTOR DE DEPENDENCIAS: Gradle **9.4.1**
-BASE DE DATOS: SQL PostgreSQL **version**
+Este directorio contiene el microservicio encargado de la atención y gestión de emergencias médicas para el proyecto **Good Health**.
 
-RUN: ./gradlew bootRun
-DEBUG: ...
-CLEAN: ./gradlew clean
-BUILD: ./gradlew build
+## Stack Tecnológico
+- **Tecnologías:** Java 21 + Spring Boot 4.0.5
+- **Gestor de Dependencias:** Gradle 9.4.1
+- **Base de Datos:** PostgreSQL (SQL)
 
-CLEAN AND RUN: ./gradlew clean bootRun
+## Ejecución
+- **Puerto expuesto:** `8082`
 
-PUERTO: 8082
+### Comandos disponibles
+
+| Acción | Comando |
+| :--- | :--- |
+| **Run** | `./gradlew bootRun` |
+| **Clean** | `./gradlew clean` |
+| **Build** | `./gradlew build` |
+| **Clean & Run** | `./gradlew clean bootRun` |

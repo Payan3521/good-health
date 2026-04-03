@@ -1,15 +1,20 @@
-*FRONTEND - CLIENT*
+# Frontend Client - Good Health
 
-TECNOLOGIAS: TypeScript **5.9.2** + Angular **21.2.0**
-ESTILOS: Sass (SCSS)
-GESTOR DE DEPENDENCIAS: npm/npx **11.9.0**
-BASE DE DATOS: ...
+Este directorio abstrae la aplicación cliente (interfaz de usuario) del proyecto **Good Health**.
 
-RUN: npx ng serve / npm start
-DEBUG: ...
-CLEAN: rm -rf dist .angular
-BUILD: npx ng build  / npm run build
+## Stack Tecnológico
+- **Tecnologías:** TypeScript 5.9.2 + Angular 21.2.0
+- **Estilos:** Sass (SCSS)
+- **Gestor de Dependencias:** npm/npx 11.9.0
 
-CLEAN AND RUN: rm -rf dist .angular && npx ng serve
+## Ejecución
+- **Puerto expuesto:** `4200`
 
-PUERTO: 4200
+### Comandos disponibles
+
+| Acción | Comando |
+| :--- | :--- |
+| **Run** | `npx ng serve` o `npm start` |
+| **Clean** | `rm -rf dist .angular` |
+| **Build** | `npx ng build` o `npm run build` |
+| **Clean & Run** | `rm -rf dist .angular && npx ng serve` |

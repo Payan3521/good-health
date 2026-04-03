@@ -1,15 +1,21 @@
-*NOTIFICATION - MICROSERVICE*
+# Notification Microservice - Good Health
 
-TECNOLOGIAS: C# **Latest default** + .NET **10.0**
-GESTOR DE DEPENDENCIAS: NuGet **7.3.0.0**
-BASE DE DATOS: SQL PostgreSQL **version**
-INTEGRACION: Serverless AWS Lambda
+Este directorio contiene el microservicio encargado del envío de notificaciones y alertas para los diferentes casos de uso del proyecto **Good Health**.
 
-RUN: dotnet run
-DEBUG: ...
-CLEAN: dotnet clean
-BUILD: dotnet build
+## Stack Tecnológico
+- **Tecnologías:** C# (Latest default) + .NET 10.0
+- **Gestor de Dependencias:** NuGet 7.3.0.0
+- **Base de Datos:** PostgreSQL (SQL)
+- **Integración:** AWS Lambda (Serverless)
 
-CLEAN AND RUN: dotnet clean && dotnet run
+## Ejecución
+- **Puerto expuesto:** `8085`
 
-PUERTO: 8085
+### Comandos disponibles
+
+| Acción | Comando |
+| :--- | :--- |
+| **Run** | `dotnet run` |
+| **Clean** | `dotnet clean` |
+| **Build** | `dotnet build` |
+| **Clean & Run** | `dotnet clean && dotnet run` |
