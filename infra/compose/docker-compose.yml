@@ -2,7 +2,7 @@ services:
   authentication-microservice:
     build:
       context: ../../authentication-microservice
-      dockerfile: 
+      dockerfile: Dockerfile
     container_name: authentication-microservice
     restart: unless-stopped
     env_file:
@@ -16,22 +16,170 @@ services:
         condition: service_healthy
 
   doctorSchedule-microservice:
+    build:
+      context: ../../doctorSchedule-microservice
+      dockerfile: Dockerfile
+    container_name: doctorSchedule-microservice
+    restart: unless-stopped
+    env_file:
+      - ../../doctorSchedule-microservice/.env
+    ports:
+      - "8081:8081"
+    networks:
+      - good-health-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
 
   emergency-microservice:
+    build:
+      context: ../../emergency-microservice
+      dockerfile: Dockerfile
+    container_name: emergency-microservice
+    restart: unless-stopped
+    env_file:
+      - ../../emergency-microservice/.env
+    ports:
+      - "8082:8082"
+    networks:
+      - good-health-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
 
   gateway-microservice:
+    build:
+      context: ../../gateway-microservice
+      dockerfile: Dockerfile
+    container_name: gateway-microservice
+    restart: unless-stopped
+    env_file:
+      - ../../gateway-microservice/.env
+    ports:
+      - "8000:8000"
+    networks:
+      - good-health-network
+    depends_on:
+      - authentication-microservice:
+        condition: service_healthy
+      - doctorSchedule-microservice:
+        condition: service_healthy
+      - emergency-microservice:
+        condition: service_healthy
+      - medicalRecord-microservice:
+        condition: service_healthy
+      - notification-microservice:
+        condition: service_healthy
+      - pharmacy-microservice:
+        condition: service_healthy
+      - register-microservice:
+        condition: service_healthy
+      - IAIntegration-microservice:
+        condition: service_healthy
+      - postgres-db:
+        condition: service_healthy
+      - mongo-db:
+        condition: service_healthy
+      - kafka-broker:
+        condition: service_healthy
+      - trafik-router:
+        condition: service_healthy
 
   medicalRecord-microservice:
+    build:
+      context: ../../medicalRecord-microservice
+      dockerfile: Dockerfile
+    container_name: medicalRecord-microservice
+    restart: unless-stopped
+    env_file:
+      - ../../medicalRecord-microservice/.env
+    ports:
+      - "8084:8084"
+    networks:
+      - good-health-network
+    depends_on:
+      mongo-db:
+        condition: service_healthy
 
   notification-microservice:
+    build:
+      context: ../../notification-microservice
+      dockerfile: Dockerfile
+    container_name: notification-microservice
+    restart: unless-stopped
+    env_file:
+      - ../../notification-microservice/.env
+    ports:
+      - "8085:8085"
+    networks:
+      - good-health-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
 
   pharmacy-microservice:
+    build:
+      context: ../../pharmacy-microservice
+      dockerfile: Dockerfile
+    container_name: pharmacy-microservice
+    restart: unless-stopped
+    env_file:
+      - ../../pharmacy-microservice/.env
+    ports:
+      - "8086:8086"
+    networks:
+      - good-health-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
 
   register-microservice:
+    build:
+      context: ../../register-microservice
+      dockerfile: Dockerfile
+    container_name: register-microservice
+    restart: unless-stopped
+    env_file:
+      - ../../register-microservice/.env
+    ports:
+      - "8087:8087"
+    networks:
+      - good-health-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
 
   IAIntegration-microservice:
+    build:
+      context: ../../IAIntegration-microservice
+      dockerfile: Dockerfile
+    container_name: IAIntegration-microservice
+    restart: unless-stopped
+    env_file:
+      - ../../IAIntegration-microservice/.env
+    ports:
+      - "8083:8083"
+    networks:
+      - good-health-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
 
   frontend-client:
+    build:
+      context: ../../frontend-client
+      dockerfile: Dockerfile
+    container_name: frontend-client
+    restart: unless-stopped
+    env_file:
+      - ../../frontend-client/.env
+    ports:
+      - "4200:4200"
+    networks:
+      - good-health-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
 
   postgres-db:
     image: postgres:16-alpine
@@ -52,14 +200,58 @@ services:
     networks:
       - good-health-network
 
-  Mongo-db:
+  mongo-db:
+    image: mongo:
+    container_name: mongo-db
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --eval 'db.runCommand({ serverStatus: 1 }).ok'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - good-health-network
+
+  zookeeper:
 
   kafka-broker:
 
   trafik-router:
+    image: traefik:v3.3
+    container_name: trafik-router
+    restart: unless-stopped
+    command:
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+      - "--entrypoints.web.address=:80"
+      - "--providers.file.filename=/etc/traefik/dynamic.yml"
+      - "--providers.file.watch=true"
+    ports:
+      - "80:80"
+      - "8888:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./routing/dynamic.yml:/etc/traefik/dynamic.yml:ro
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - good-health-network
+    
 
 volumes:
   postgres_data
+  mongo_data
 
 networks:
   good-health-network:
